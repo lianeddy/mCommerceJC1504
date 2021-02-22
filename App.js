@@ -1,31 +1,19 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
+import {configureStore} from '@reduxjs/toolkit';
+import reducer from './src/redux/reducer';
+import Main from './src/navigation/Main';
 
-import axios from 'axios';
-import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+const store = configureStore({reducer, devTools: true});
 
 const App = () => {
-  useEffect(() => {
-    axios
-      .get('http://192.168.0.101:2000/product')
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log('here');
-        console.log(err);
-      });
-  }, []);
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <NavigationContainer>
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    </NavigationContainer>
   );
 };
 
