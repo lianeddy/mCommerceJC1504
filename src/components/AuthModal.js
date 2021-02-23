@@ -2,6 +2,7 @@ import React from 'react';
 import {Alert, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {dismissErrorAction} from '../redux/action';
+import {primary_color, surface_color, text_color} from '../screen';
 
 const AuthModal = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const AuthModal = () => {
           <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => dispatch(dismissErrorAction())}>
-            <Text style={styles.textStyle}>Hide Modal</Text>
+            <Text style={styles.textStyle}>Ok</Text>
           </Pressable>
         </View>
       </View>
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: surface_color,
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
@@ -60,16 +61,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: primary_color,
   },
   textStyle: {
-    color: 'white',
+    color: text_color,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+    color: text_color,
   },
 });
 

@@ -17,7 +17,7 @@ export const loginAction = (loginData) => {
       await AsyncStorage.setItem('token', token);
       dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
     } catch (err) {
-      dispatch({type: AUTH_FAILED, payload: err.response.data.message});
+      dispatch({type: AUTH_FAILED, payload: err.response.data.error});
     }
   };
 };
@@ -27,5 +27,40 @@ export const dismissErrorAction = () => {
     type: NULLIFY_ERROR,
   };
 };
-export const registerAction = () => {};
-export const keepLoginAction = () => {};
+
+export const registerAction = (registerData) => {
+  return async (dispatch) => {
+    try {
+      dispatch({type: AUTH_START});
+      const response = await axios.post(`${url}/register`, registerData);
+      const {id, username, email, roleID, token} = response.data;
+      await AsyncStorage.setItem('token', token);
+      dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
+    } catch (err) {
+      console.log(err.response.data);
+      dispatch({type: AUTH_FAILED, payload: err.response.data.error});
+    }
+  };
+};
+
+export const keepLoginAction = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({type: AUTH_START});
+      const asyncToken = await AsyncStorage.getItem('token');
+      const response = await axios.post(
+        `${url}/keep-login`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${asyncToken}`,
+          },
+        },
+      );
+      const {id, username, email, roleID} = response.data;
+      dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
+    } catch (err) {
+      dispatch({type: AUTH_FAILED, payload: err.response.data.error});
+    }
+  };
+};
