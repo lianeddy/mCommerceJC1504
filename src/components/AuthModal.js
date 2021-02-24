@@ -2,7 +2,7 @@ import React from 'react';
 import {Alert, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {dismissErrorAction} from '../redux/action';
-import {primary_color, surface_color, text_color} from '../screen';
+import {primary_color, surface_color, text_color} from '../screen/styles';
 
 const AuthModal = () => {
   const dispatch = useDispatch();

@@ -3,7 +3,12 @@ import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useDispatch} from 'react-redux';
-import {background_color, primary_color, surface_color, text_color} from '..';
+import {
+  background_color,
+  primary_color,
+  surface_color,
+  text_color,
+} from '../styles';
 import {AuthModal} from '../../components';
 import {loginAction} from '../../redux/action';
 
