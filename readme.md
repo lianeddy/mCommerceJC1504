@@ -1,10 +1,14 @@
 Di sesi ini kita akan mulai membuat mini project (commerce)
 
-- AuthStack
+-AuthStack
 
-  - User dapat membuat akun baru
-  - apabila data yang user input tidak sesuai ketentuan api, dia akan menerima pesan error
-  - jika user sudah pernah login, dia tidak harus login lagi untuk mengakses layar home (keep login)
+- Style Register
 
-- To do
-  - Style Register
+- Product Stack
+  - User dapat melihat semua produk yang tersedia di database kita
+  - User dapat pindah layar ke halaman detail
+
+-Todo
+
+- user dapat melihat informasi lebih lanjut mengenai produk yang ia pilih (Detail)
+- styling Detail

@@ -1,3 +1,4 @@
 import AuthModal from './AuthModal';
+import CardProduct from './CardProduct';
 
-export {AuthModal};
+export {AuthModal, CardProduct};

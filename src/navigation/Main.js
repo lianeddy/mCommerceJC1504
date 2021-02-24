@@ -5,10 +5,10 @@ import AuthStack from './AuthStack';
 import {keepLoginAction} from '../redux/action';
 
 const Main = () => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(keepLoginAction());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(keepLoginAction());
+  }, [dispatch]);
   const {isSignedIn} = useSelector((state) => state.auth);
   return <>{isSignedIn ? <HomeNav /> : <AuthStack />}</>;
 };

@@ -1,19 +1,16 @@
 import {Button, Input, Item, Text} from 'native-base';
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useDispatch} from 'react-redux';
-import {
-  background_color,
-  primary_color,
-  surface_color,
-  text_color,
-} from '../styles';
+import {useDispatch, useSelector} from 'react-redux';
+import {primary_color} from '../styles';
+import styles from '../styles/authStyle';
 import {AuthModal} from '../../components';
 import {loginAction} from '../../redux/action';
 
 const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
+  const {loading} = useSelector((state) => state.auth);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -42,57 +39,25 @@ const LoginScreen = ({navigation}) => {
             />
           </Item>
         </View>
-        {/* <Item> */}
         <View>
           <Button
+            disabled={loading}
             full
             onPress={() => dispatch(loginAction({username, password}))}
             style={styles.buttonStyle}>
-            <Text>Login</Text>
+            <Text style={styles.buttonTextColor}>LOGIN</Text>
           </Button>
-          {/* </Item> */}
-          {/* <Item> */}
           <Button
+            disabled={loading}
             full
             onPress={() => navigation.replace('Register')}
             style={styles.buttonStyle}>
-            <Text>Register</Text>
+            <Text style={styles.buttonTextColor}>REGISTER</Text>
           </Button>
-          {/* </Item> */}
         </View>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: background_color,
-  },
-  logoContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inputContainer: {
-    flex: 1,
-    margin: 10,
-  },
-  buttonStyle: {
-    backgroundColor: primary_color,
-    borderRadius: 20,
-    marginVertical: 5,
-  },
-  inputStyle: {
-    backgroundColor: surface_color,
-    color: text_color,
-    marginVertical: 5,
-    borderColor: 'transparent',
-  },
-  itemStyle: {
-    borderColor: 'transparent',
-  },
-});
 
 export default LoginScreen;
