@@ -1,14 +1,10 @@
 Di sesi ini kita akan mulai membuat mini project (commerce)
 
--AuthStack
-
-- Style Register
-
 - Product Stack
-  - User dapat melihat semua produk yang tersedia di database kita
-  - User dapat pindah layar ke halaman detail
 
--Todo
+  - user dapat melihat informasi lebih lanjut mengenai produk yang ia pilih (Detail)
+  - User dapat memilih jumlah barang yang dia mau
+  - User dapat melakukan add to cart
+  - User dapat melihat jumlah barang yang ada di dalam cart di badge tab
 
-- user dapat melihat informasi lebih lanjut mengenai produk yang ia pilih (Detail)
-- styling Detail
+- Styling Detail

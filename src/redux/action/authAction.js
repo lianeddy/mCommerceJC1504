@@ -2,6 +2,7 @@ import {local} from '../../../localip';
 import axios from 'axios';
 import {AUTH_FAILED, AUTH_START, AUTH_SUCCESS, NULLIFY_ERROR} from '../types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {fetchCartAction} from './cartAction';
 const url = `${local}/user`;
 
 // /login
@@ -16,6 +17,7 @@ export const loginAction = (loginData) => {
       const {id, username, email, roleID, token} = response.data;
       await AsyncStorage.setItem('token', token);
       dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
+      dispatch(fetchCartAction(id));
     } catch (err) {
       dispatch({type: AUTH_FAILED, payload: err.response.data.error});
     }
@@ -59,6 +61,7 @@ export const keepLoginAction = () => {
       );
       const {id, username, email, roleID} = response.data;
       dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
+      dispatch(fetchCartAction(id));
     } catch (err) {
       dispatch({type: AUTH_FAILED, payload: err.response.data.error});
     }

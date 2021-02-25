@@ -4,7 +4,7 @@ import {Button, Text} from 'native-base';
 import {local} from '../../localip';
 import {primary_color} from '../screen/styles';
 
-const CardProduct = ({name, image, price, description, navigation}) => {
+const CardProduct = ({id, name, image, price, description, navigation}) => {
   return (
     <View style={styles.cardStyle}>
       <View style={styles.imageContainer}>
@@ -17,7 +17,7 @@ const CardProduct = ({name, image, price, description, navigation}) => {
           <Text style={styles.priceStyle}>Rp. {price.toLocaleString()}</Text>
           <Button
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate('Detail')}>
+            onPress={() => navigation.navigate('Detail', {id})}>
             <Text>BUY</Text>
           </Button>
         </View>

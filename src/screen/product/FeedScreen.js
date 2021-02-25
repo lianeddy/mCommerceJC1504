@@ -18,6 +18,7 @@ const FeedScreen = ({navigation}) => {
       numColumns={1}
       renderItem={({item}) => (
         <CardProduct
+          id={item.id}
           name={item.name}
           image={item.image[0].imagepath}
           price={item.price}
