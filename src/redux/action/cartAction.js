@@ -27,3 +27,27 @@ export const fetchCartAction = (id) => {
     }
   };
 };
+
+export const changeQtyCartAction = ({quantity, id, userID}) => {
+  return async (dispatch) => {
+    try {
+      dispatch({type: CART_START});
+      await axios.patch(`${url}/${id}`, {quantity});
+      dispatch(fetchCartAction(userID));
+    } catch (err) {
+      dispatch({type: CART_FAILED, payload: err.response.data.error});
+    }
+  };
+};
+
+export const deleteCartAction = ({userID, id}) => {
+  return async (dispatch) => {
+    try {
+      dispatch({type: CART_START});
+      await axios.delete(`${url}/${id}`);
+      dispatch(fetchCartAction(userID));
+    } catch (err) {
+      dispatch({type: CART_FAILED, payload: err.response.data.error});
+    }
+  };
+};

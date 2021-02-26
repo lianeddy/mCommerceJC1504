@@ -2,9 +2,10 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
-import {primary_color} from '../screen/styles';
+import {background_color, primary_color} from '../screen/styles';
 import ProductStack from './ProductStack';
 import {useSelector} from 'react-redux';
+import CartScreen from '../screen/cart/CartScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,13 +13,6 @@ const Post = () => {
   return (
     <View>
       <Text>Post</Text>
-    </View>
-  );
-};
-const Cart = () => {
-  return (
-    <View>
-      <Text>Cart</Text>
     </View>
   );
 };
@@ -32,6 +26,7 @@ const HomeNav = () => {
         inactiveTintColor: 'gray',
       }}
       initialRouteName="Feed"
+      sceneContainerStyle={{backgroundColor: background_color}}
       screenOptions={({route}) => ({
         tabBarIcon: ({color}) => {
           let iconName;
@@ -49,7 +44,7 @@ const HomeNav = () => {
       <Tab.Screen name="Post" component={Post} />
       <Tab.Screen
         name="Cart"
-        component={Cart}
+        component={CartScreen}
         options={{tabBarBadge: length}}
       />
     </Tab.Navigator>

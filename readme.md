@@ -1,10 +1,9 @@
 Di sesi ini kita akan mulai membuat mini project (commerce)
 
-- Product Stack
+- Cart
 
-  - user dapat melihat informasi lebih lanjut mengenai produk yang ia pilih (Detail)
-  - User dapat memilih jumlah barang yang dia mau
-  - User dapat melakukan add to cart
-  - User dapat melihat jumlah barang yang ada di dalam cart di badge tab
+  - User dapat melihat barang yang di masukan ke dalam cart
+  - user dapat melihat total harga dari setiap produk di dalam cart
 
-- Styling Detail
+- Feed
+  - User dapat memfilter produk bedasarkan nama

@@ -10,7 +10,7 @@ import {
   surface_color,
   text_color,
 } from '../styles';
-import {addToCartAction} from '../../redux/action';
+import {addToCartAction, changeQtyCartAction} from '../../redux/action';
 
 const sizes = ['s', 'm', 'l', 'xl'];
 const colors = ['merah', 'biru', 'hijau'];
@@ -20,9 +20,26 @@ const DetailScreen = ({navigation, route}) => {
   const [quantity, setQuantity] = useState(1);
   const {productList} = useSelector((state) => state.product);
   const userID = useSelector((state) => state.auth.id);
+  const {cartList} = useSelector((state) => state.cart);
   const {name, price, description, category, image} = productList.find(
     (val) => val.id === route.params.id,
   );
+
+  const buyBtn = () => {
+    const productInCart = cartList.find((val) => val.name === name);
+    if (productInCart) {
+      dispatch(
+        changeQtyCartAction({
+          quantity: productInCart.quantity + quantity,
+          id: productInCart.id,
+          userID,
+        }),
+      );
+    } else {
+      dispatch(addToCartAction({productID: route.params.id, quantity, userID}));
+    }
+    return navigation.goBack();
+  };
 
   return (
     // <ScrollView>
@@ -76,15 +93,7 @@ const DetailScreen = ({navigation, route}) => {
         </View>
       </View>
       {/* idProduct, userID, quantity */}
-      <Button
-        title="Buy"
-        buttonStyle={styles.buttonStyle}
-        onPress={() =>
-          dispatch(
-            addToCartAction({productID: route.params.id, quantity, userID}),
-          )
-        }
-      />
+      <Button title="Buy" buttonStyle={styles.buttonStyle} onPress={buyBtn} />
     </View>
 
     // </ScrollView>
