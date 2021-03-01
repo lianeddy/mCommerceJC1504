@@ -4,6 +4,7 @@ import {SearchBar} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
 import {CardProduct} from '../../components';
 import {fetchProductAction} from '../../redux/action';
+import {surface_color} from '../styles';
 
 const FeedScreen = ({navigation}) => {
   const dispatch = useDispatch();
@@ -20,6 +21,11 @@ const FeedScreen = ({navigation}) => {
           placeholder="Search..."
           value={search}
           onChangeText={(e) => setSearch(e)}
+          containerStyle={{
+            backgroundColor: surface_color,
+            borderBottomColor: 'transparent',
+            borderTopColor: 'transparent',
+          }}
         />
       }
       keyExtractor={(item) => item.id.toString()}

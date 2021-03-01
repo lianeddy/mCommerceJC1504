@@ -45,7 +45,7 @@ const HomeNav = () => {
       <Tab.Screen
         name="Cart"
         component={CartScreen}
-        options={{tabBarBadge: length}}
+        options={{tabBarBadge: length ? length : null}}
       />
     </Tab.Navigator>
   );

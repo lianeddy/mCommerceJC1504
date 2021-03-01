@@ -15,6 +15,7 @@ const INITIAL_STATE = {
   loading: false,
   error: false,
   errorMessage: '',
+  address: [],
 };
 
 // action.payload = {

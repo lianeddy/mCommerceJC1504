@@ -59,8 +59,11 @@ export const keepLoginAction = () => {
           },
         },
       );
-      const {id, username, email, roleID} = response.data;
-      dispatch({type: AUTH_SUCCESS, payload: {id, username, email, roleID}});
+      const {id, username, email, roleID, address} = response.data;
+      dispatch({
+        type: AUTH_SUCCESS,
+        payload: {id, username, email, roleID, address},
+      });
       dispatch(fetchCartAction(id));
     } catch (err) {
       dispatch({type: AUTH_FAILED, payload: err.response.data.error});

@@ -1,9 +1,8 @@
 Di sesi ini kita akan mulai membuat mini project (commerce)
 
-- Cart
+Drawer
 
-  - User dapat melihat barang yang di masukan ke dalam cart
-  - user dapat melihat total harga dari setiap produk di dalam cart
-
-- Feed
-  - User dapat memfilter produk bedasarkan nama
+- User dapat melihat profil nya yang berisi dengan nama, role, email,
+- user dapat melihat alamat yang dia punya
+- user dapat menambahkan alamat
+- User dapat logout dari aplikasi

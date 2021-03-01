@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import HomeNav from './HomeNav';
 import AuthStack from './AuthStack';
 import {keepLoginAction} from '../redux/action';
+import ProfileDrawer from './ProfileDrawer';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const Main = () => {
     dispatch(keepLoginAction());
   }, [dispatch]);
   const {isSignedIn} = useSelector((state) => state.auth);
-  return <>{isSignedIn ? <HomeNav /> : <AuthStack />}</>;
+  return <>{isSignedIn ? <ProfileDrawer /> : <AuthStack />}</>;
 };
 
 export default Main;
