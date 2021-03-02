@@ -3,6 +3,7 @@ import {
   FETCH_START,
   FETCH_SUCCESS,
   NULLIFY_ERROR,
+  UPLOAD_SUCCESS,
 } from '../types';
 
 const INITIAL_STATE = {
@@ -23,6 +24,11 @@ export const productReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         productList: action.payload,
+        loading: false,
+      };
+    case UPLOAD_SUCCESS:
+      return {
+        ...state,
         loading: false,
       };
     case FETCH_FAILED:

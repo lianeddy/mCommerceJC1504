@@ -2,7 +2,4 @@ Di sesi ini kita akan mulai membuat mini project (commerce)
 
 Drawer
 
-- User dapat melihat profil nya yang berisi dengan nama, role, email,
-- user dapat melihat alamat yang dia punya
-- user dapat menambahkan alamat
-- User dapat logout dari aplikasi
+- user dapat post produk baru dengan gambar yang dia pilih dari galeri atau kamera.

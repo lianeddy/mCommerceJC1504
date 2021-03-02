@@ -1,21 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
 import {background_color, primary_color} from '../screen/styles';
 import ProductStack from './ProductStack';
 import {useSelector} from 'react-redux';
 import CartScreen from '../screen/cart/CartScreen';
+import PostScreen from '../screen/post/PostScreen';
 
 const Tab = createBottomTabNavigator();
-
-const Post = () => {
-  return (
-    <View>
-      <Text>Post</Text>
-    </View>
-  );
-};
 
 const HomeNav = () => {
   const length = useSelector((state) => state.cart.cartList.length);
@@ -41,7 +33,7 @@ const HomeNav = () => {
         },
       })}>
       <Tab.Screen name="Feed" component={ProductStack} />
-      <Tab.Screen name="Post" component={Post} />
+      <Tab.Screen name="Post" component={PostScreen} />
       <Tab.Screen
         name="Cart"
         component={CartScreen}

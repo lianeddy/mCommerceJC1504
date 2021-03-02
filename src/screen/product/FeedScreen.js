@@ -35,7 +35,7 @@ const FeedScreen = ({navigation}) => {
         <CardProduct
           id={item.id}
           name={item.name}
-          image={item.image[0].imagepath}
+          image={item.image.length !== 0 ? item.image[0].imagepath : ''}
           price={item.price}
           description={item.description}
           navigation={navigation}

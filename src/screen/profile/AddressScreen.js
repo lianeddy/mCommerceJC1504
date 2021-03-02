@@ -5,7 +5,6 @@ import axios from 'axios';
 import {local} from '../../../localip';
 
 const AddressScreen = (props) => {
-  console.log(props.route.params.userID);
   const {address} = useSelector((state) => state.auth);
   const [inputAddress, setInputAddress] = useState('');
   const handleSubmit = async () => {
